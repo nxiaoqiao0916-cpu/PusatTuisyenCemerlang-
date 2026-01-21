@@ -23,8 +23,7 @@ body, body.grade-page {
   position: relative;
 
   padding-top: clamp(70px, 12vw, 90px);
-  padding-left: clamp(12px, 6vw, 90px);
-  padding-right: clamp(12px, 6vw, 90px);
+  padding-inline: clamp(12px, 5vw, 60px);
 }
 
 /* ==========================
@@ -168,3 +167,4 @@ select {
   from { opacity: 0.2; transform: scale(0.5); }
   to   { opacity: 1; transform: scale(1.2); }
 }
+
