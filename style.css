@@ -54,26 +54,30 @@ h1, h2 {
 /* ==========================
    🧠 题目卡片（自动宽度）
 ========================== */
-.question {
-  background: rgba(255,255,255,0.2);
-  border-radius: 18px;
-
-  width: min(100%, 620px);
-  margin: clamp(12px, 4vw, 20px) auto;
-  padding: clamp(14px, 4vw, 20px);
-
-  text-align: mid;
-  backdrop-filter: blur(5px);
-  border: 1px solid rgba(255,255,255,0.3);
-  box-sizing: border-box;
-
+.question label {
   display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
+  align-items: center;
+  gap: 0.6em;
 
-  transition: transform 0.2s;
+  padding: 0.4em 0.6em;
+  border-radius: 10px;
+
+  font-size: 1rem;
+  line-height: 1.4;
+  cursor: pointer;
+
+  transition: background 0.2s;
 }
 
+.question label:hover {
+  background: rgba(255,255,255,0.15);
+}
+
+.question input[type="radio"],
+.question input[type="checkbox"] {
+  flex-shrink: 0;
+  transform: scale(1.15);
+}
 @media (hover: hover) {
   .question:hover {
     transform: scale(1.04);
@@ -167,5 +171,6 @@ select {
   from { opacity: 0.2; transform: scale(0.5); }
   to   { opacity: 1; transform: scale(1.2); }
 }
+
 
 
