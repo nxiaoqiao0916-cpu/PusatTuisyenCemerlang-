@@ -54,41 +54,60 @@ h1, h2 {
 /* ==========================
    🧠 题目卡片（自动宽度）
 ========================== */
-.question label {
-   display: flex; 
-  align-items: left;
-  gap: 0.1em;
+.question {
+  background: rgba(255,255,255,0.2);
+  border-radius: 18px;
 
-  padding: 0.4em 0.6em;
-  border-radius: 10px;
+  width: min(100%, 620px);
+  margin: clamp(12px, 4vw, 20px) auto;
+  padding: clamp(14px, 4vw, 20px);
 
-  font-size: 1rem;
-  line-height: 1.4;
-  cursor: pointer;
+  text-align: left;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255,255,255,0.3);
+  box-sizing: border-box;
 
-  transition: background 0.2s;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem; /* label 间距稍大一点 */
+
+  transition: transform 0.2s;
 }
 
-.question label:hover {
-  background: rgba(255,255,255,0.15);
+@media (hover: hover) {
+  .question:hover {
+    transform: scale(1.04);
+  }
+}
+
+.question p {
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+/* ==========================
+   选项修复：圈靠左，文字紧跟圈
+========================== */
+.question label {
+  display: flex;               /* 圈+文字在一行 */
+  align-items: center;         /* 垂直居中 */
+  justify-content: flex-start; /* 整组靠左 */
+  gap: 0.25em;                 /* 圈与文字间距 */
+  padding: 0.3em 0;            /* 上下间距 */
+  cursor: pointer;
+
+  white-space: normal;         /* 不拆字 */
+  width: auto;                 /* label 自适应宽度 */
 }
 
 .question input[type="radio"],
 .question input[type="checkbox"] {
   flex-shrink: 0;
-  transform: scale(1.15);
-   margin-left: 0;           /* 去掉默认的内边距 */
-  margin-right: 0.2em;   
+  margin-left: 0;   /* 圈贴左边 */
+  margin-right: 0.2em; /* 文字紧跟圈 */
+  transform: scale(1.1);  /* 圈大小可调 */
 }
-@media (hover: hover) {
- .question {
-    text-align: center;      /* 问题文字居中 */
-  }
-  .question label {
-    justify-content: flex-start; /* 圈+文字靠左，不乱 */
-    width: 100%;                 /* 占满卡片宽度 */
-  }
-}
+
 /* ==========================
    🔘 按钮（手指友好）
 ========================== */
@@ -165,6 +184,7 @@ select {
   from { opacity: 0.2; transform: scale(0.5); }
   to   { opacity: 1; transform: scale(1.2); }
 }
+
 
 
 
