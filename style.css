@@ -77,6 +77,8 @@ h1, h2 {
 .question input[type="checkbox"] {
   flex-shrink: 0;
   transform: scale(1.15);
+   margin-left: 0;           /* 去掉默认的内边距 */
+  margin-right: 0.2em;   
 }
 @media (hover: hover) {
  .question {
@@ -163,6 +165,7 @@ select {
   from { opacity: 0.2; transform: scale(0.5); }
   to   { opacity: 1; transform: scale(1.2); }
 }
+
 
 
 
