@@ -55,8 +55,8 @@ h1, h2 {
    🧠 题目卡片（自动宽度）
 ========================== */
 .question label {
-  align-items: center;
-  gap: 0.6em;
+  align-items: left;
+  gap: 0.3em;
 
   padding: 0.4em 0.6em;
   border-radius: 10px;
@@ -169,6 +169,7 @@ select {
   from { opacity: 0.2; transform: scale(0.5); }
   to   { opacity: 1; transform: scale(1.2); }
 }
+
 
 
 
