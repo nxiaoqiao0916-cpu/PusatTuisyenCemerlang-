@@ -62,7 +62,7 @@ h1, h2 {
   margin: clamp(12px, 4vw, 20px) auto;
   padding: clamp(14px, 4vw, 20px);
 
-  text-align: left;
+  text-align: mid;
   backdrop-filter: blur(5px);
   border: 1px solid rgba(255,255,255,0.3);
   box-sizing: border-box;
@@ -167,4 +167,5 @@ select {
   from { opacity: 0.2; transform: scale(0.5); }
   to   { opacity: 1; transform: scale(1.2); }
 }
+
 
