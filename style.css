@@ -69,7 +69,7 @@ h1, h2 {
 
   display: flex;
   flex-direction: column;
-  gap: 0.6rem; /* label 间距稍大一点 */
+  gap: 0.4rem;
 
   transition: transform 0.2s;
 }
@@ -85,27 +85,10 @@ h1, h2 {
   line-height: 1.6;
 }
 
-/* ==========================
-   选项修复：圈靠左，文字紧跟圈
-========================== */
 .question label {
-  display: flex;               /* 圈+文字在一行 */
-  align-items: center;         /* 垂直居中 */
-  justify-content: flex-start; /* 整组靠左 */
-  gap: 0.25em;                 /* 圈与文字间距 */
-  padding: 0.3em 0;            /* 上下间距 */
-  cursor: pointer;
-
-  white-space: normal;         /* 不拆字 */
-  width: auto;                 /* label 自适应宽度 */
-}
-
-.question input[type="radio"],
-.question input[type="checkbox"] {
-  flex-shrink: 0;
-  margin-left: 0;   /* 圈贴左边 */
-  margin-right: 0.2em; /* 文字紧跟圈 */
-  transform: scale(1.1);  /* 圈大小可调 */
+  display: block;
+  font-size: 1rem;
+  padding: 0.3em 0;
 }
 
 /* ==========================
@@ -184,14 +167,3 @@ select {
   from { opacity: 0.2; transform: scale(0.5); }
   to   { opacity: 1; transform: scale(1.2); }
 }
-
-
-
-
-
-
-
-
-
-
-
