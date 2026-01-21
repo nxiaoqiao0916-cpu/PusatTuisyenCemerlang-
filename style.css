@@ -1,81 +1,150 @@
 @import url('https://fonts.googleapis.com/css2?family=Baloo+2&display=swap');
 
 /* ==========================
-   全站基础设定
+   🌍 全站基础（自动缩放）
 ========================== */
+html {
+  font-size: clamp(14px, 3.5vw, 18px);
+}
+
 body, body.grade-page {
   font-family: 'Baloo 2', cursive, sans-serif;
   margin: 0;
-  padding: 0;
   min-height: 100vh;
-
   color: white;
   text-align: center;
 
-  /* 内容排版 */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
 
-  /* 背景 */
   background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
   position: relative;
 
-  /* ⭐ 给固定 Logo 让位（非常重要） */
-  padding-top: 90px;
-  padding-left: 90px;
+  padding-top: clamp(70px, 12vw, 90px);
+  padding-left: clamp(12px, 6vw, 90px);
+  padding-right: clamp(12px, 6vw, 90px);
 }
 
 /* ==========================
-   固定 Logo（左上角，不滚动）
+   📌 固定 Logo（自适应）
 ========================== */
 .site-header {
   position: fixed;
   top: 12px;
-  left: 36px;
+  left: clamp(12px, 5vw, 36px);
   z-index: 9999;
 }
 
 .logo {
-    width: 150px;    /* 宽度 150px */
-    height: auto;    /* 高度自适应比例 */
-    border-radius: 10px; /* 可选，圆角效果 */
+  width: clamp(100px, 20vw, 150px);
+  height: auto;
+  border-radius: 10px;
 }
 
-
 /* ==========================
-   手机端适配
+   🟡 标题
 ========================== */
-@media (max-width: 480px) {
-  body, body.grade-page {
-    font-size: 16px;
-    padding-top: 80px;
-    padding-left: 20px;
-  }
-
-  .logo {
-    height: 60px;
-  }
-
-  .question {
-    width: 90%;
-    padding: 15px;
-  }
-
-  form#parentForm {
-    width: 90%;
-    padding: 20px;
-  }
-
-  input, select, button {
-    width: 100%;
-    font-size: 16px;
-  }
+h1, h2 {
+  color: #ffcc66;
+  text-shadow: 1px 1px 3px #000;
+  margin: 1rem 0;
 }
 
 /* ==========================
-   月亮 & 星空
+   🧠 题目卡片（自动宽度）
+========================== */
+.question {
+  background: rgba(255,255,255,0.2);
+  border-radius: 18px;
+
+  width: min(100%, 620px);
+  margin: clamp(12px, 4vw, 20px) auto;
+  padding: clamp(14px, 4vw, 20px);
+
+  text-align: left;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255,255,255,0.3);
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+
+  transition: transform 0.2s;
+}
+
+@media (hover: hover) {
+  .question:hover {
+    transform: scale(1.04);
+  }
+}
+
+.question p {
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.question label {
+  display: block;
+  font-size: 1rem;
+  padding: 0.3em 0;
+}
+
+/* ==========================
+   🔘 按钮（手指友好）
+========================== */
+button {
+  display: block;
+  margin: 1.5rem auto;
+  width: min(100%, 320px);
+
+  padding: 0.8em 1.2em;
+  font-size: 1.1rem;
+
+  border-radius: 25px;
+  border: none;
+  background-color: #ffcc66;
+  cursor: pointer;
+
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+button:hover {
+  transform: scale(1.05);
+  background-color: #ffd966;
+}
+
+/* ==========================
+   📊 结果区
+========================== */
+#result {
+  margin-top: 2rem;
+  padding: 1.2rem;
+  background: rgba(255,255,255,0.3);
+  border-radius: 15px;
+  color: #fff;
+  width: min(100%, 620px);
+}
+
+/* ==========================
+   📝 表单元素（自动适配）
+========================== */
+input,
+select {
+  width: min(100%, 260px);
+  font-size: 1rem;
+  padding: 0.6em;
+
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  background-color: #fff8dc;
+  cursor: pointer;
+}
+
+/* ==========================
+   🌙✨ 月亮 & 星空（完全没动）
 ========================== */
 .moon {
   position: absolute;
@@ -98,96 +167,4 @@ body, body.grade-page {
 @keyframes twinkle {
   from { opacity: 0.2; transform: scale(0.5); }
   to   { opacity: 1; transform: scale(1.2); }
-}
-
-/* ==========================
-   标题
-========================== */
-h1, h2 {
-  color: #ffcc66;
-  text-shadow: 1px 1px 3px #000;
-  margin: 15px 0;
-}
-
-/* ==========================
-   题目卡片
-========================== */
-.question {
-  background: rgba(255,255,255,0.2);
-  border-radius: 15px;
-  padding: 15px;
-  margin: 20px auto;
-
-  width: 600px;
-  min-height: 200px;
-  max-width: 95%;
-
-  text-align: left;
-  backdrop-filter: blur(5px);
-  border: 1px solid rgba(255,255,255,0.3);
-  box-sizing: border-box;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-
-  transition: transform 0.2s;
-}
-
-.question:hover {
-  transform: scale(1.05);
-}
-
-.question label {
-  display: block;
-  margin: 4px 0;
-}
-
-/* ==========================
-   按钮
-========================== */
-button {
-  display: block;
-  margin: 20px auto;
-  padding: 12px 25px;
-  font-size: 18px;
-  border-radius: 20px;
-  border: none;
-  background-color: #ffcc66;
-  cursor: pointer;
-  transition: transform 0.2s, background-color 0.2s;
-}
-
-button:hover {
-  transform: scale(1.1);
-  background-color: #ffd966;
-}
-
-/* ==========================
-   结果区
-========================== */
-#result {
-  margin-top: 30px;
-  padding: 20px;
-  background: rgba(255,255,255,0.3);
-  border-radius: 15px;
-  color: #fff;
-}
-
-/* ==========================
-   表单元素
-========================== */
-form select,
-input {
-  position: relative;
-  z-index: 10;
-
-  appearance: auto;
-  padding: 10px;
-  border-radius: 10px;
-  border: 1px solid #ccc;
-  width: 220px;
-  font-size: 16px;
-  background-color: #fff8dc;
-  cursor: pointer;
 }
