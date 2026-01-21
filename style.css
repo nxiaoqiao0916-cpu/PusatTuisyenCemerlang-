@@ -52,10 +52,20 @@ h1, h2 {
 }
 
 /* ==========================
-   🧠 题目卡片（自动宽度）
+   🧠 题目卡片选项修复
+   - 圈 + 文字在一行
+   - 整组居中
+   - 手机友好
 ========================== */
+.question p {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  text-align: center;   /* 题目文字居中 */
+}
+
+/* 默认桌面样式 */
 .question label {
-  display: flex;
+  display: flex;         /* 桌面仍横向排列 */
   align-items: center;
   gap: 0.6em;
 
@@ -78,22 +88,19 @@ h1, h2 {
   flex-shrink: 0;
   transform: scale(1.15);
 }
-@media (hover: hover) {
-  .question:hover {
-    transform: scale(1.04);
+
+/* ============= 手机专用 ============= */
+@media (max-width: 600px) {
+  .question label {
+    display: inline-flex;      /* 不占满一行 */
+    justify-content: center;   /* 整组居中 */
+    width: fit-content;        /* 不被拉伸 */
+    margin: 0.4em auto;
+    text-align: left;
+    padding: 0;
   }
 }
 
-.question p {
-  font-size: 1.05rem;
-  line-height: 1.6;
-}
-
-.question label {
-  display: block;
-  font-size: 1rem;
-  padding: 0.3em 0;
-}
 
 /* ==========================
    🔘 按钮（手指友好）
@@ -171,6 +178,7 @@ select {
   from { opacity: 0.2; transform: scale(0.5); }
   to   { opacity: 1; transform: scale(1.2); }
 }
+
 
 
 
